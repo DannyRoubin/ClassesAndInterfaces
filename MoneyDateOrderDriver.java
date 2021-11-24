@@ -319,6 +319,18 @@ public class MoneyDateOrderDriver {
         System.out.println("checking if order1 and order3 are equal, expecting false: " + order1.equals(order3));
         System.out.println("");
 
+        // testing Clone
+        System.out.println("Testing Clone");
+        System.out.println("----------------------------");
+        System.out.println("Order 1: " + order1.toString());
+        try {
+            Order order1Clone = (Order) order1.clone();
+            System.out.println("order1Clone has the value of: " + order1Clone.toString());
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e.getMessage());
+        } 
+        System.out.println("");
+
         // testing Comparable
         Date date2 = new Date(1, 2, 2016);
         System.out.println("Testing Comparable");

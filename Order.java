@@ -6,12 +6,29 @@ Assignment: Classes and Interfaces assignment
 Purpose of this file/class is to be a money class where a user is able to add in a dollar and cent amount, 
 then is able to add to it, set dollar and cent amounts, compare it to other money objects, and print the value out
 */
-public class Order implements Comparable {
+public class Order implements Comparable, Cloneable {
     private Money amount;
     private Date orderDate;
     private Date sentDate;
     private String customer;
     private String item;
+
+    // clone method that allows me to clone a new date object
+    public Order clone() throws CloneNotSupportedException {
+    try {
+        Order copy = (Order) super.clone();
+        copy.amount = amount.clone();
+        copy.orderDate = orderDate.clone();
+        copy.sentDate = sentDate.clone();
+        copy.customer = customer;
+        copy.item = item;
+        return copy;
+    } catch (CloneNotSupportedException e) {
+        e.printStackTrace();
+        return null;
+    }
+}
+
 
     // Compare to method that checks if two order objects are the same or if the called one is bigger or smaller
     // Compares by the amount
