@@ -10,6 +10,7 @@ public class Money implements Comparable, Cloneable {
     private int dollars;
     private int cents;
 
+    // clone method that allows me to clone a new money object
     public Money clone() throws CloneNotSupportedException {
         try {
             Money copy = (Money) super.clone();

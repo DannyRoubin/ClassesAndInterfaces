@@ -12,10 +12,24 @@ each month has 31 days
 years will be between 2016-2026
 printing an invalid date will return an error message and continue
 */
-public class Date implements Comparable {
+public class Date implements Comparable, Cloneable {
     private int month;
     private int day;
     private int year;
+
+ // clone method that allows me to clone a new date object
+ public Date clone() throws CloneNotSupportedException {
+    try {
+        Date copy = (Date) super.clone();
+        copy.month = month;
+        copy.day = day;
+        copy.year = year;
+        return copy;
+    } catch (CloneNotSupportedException e) {
+        e.printStackTrace();
+        return null;
+    }
+}
 
 
     // CompareTo method which allows me to compare two dates.

@@ -13,8 +13,8 @@ public class MoneyDateOrderDriver {
      */
 
     public static void main(String[] args) {
-        moneyClassDriver();
-        // dateClassDriver();
+        // moneyClassDriver();
+        dateClassDriver();
         // orderClassDriver();
     }
 
@@ -107,9 +107,7 @@ public class MoneyDateOrderDriver {
             System.out.println("money1Clone has the value of: " + money1Clone.toString());
         } catch (CloneNotSupportedException e) {
             System.out.println(e.getMessage());
-        }
-        
-        
+        } 
         System.out.println("");
 
         // testing Comparable
@@ -213,6 +211,18 @@ public class MoneyDateOrderDriver {
         System.out.println("Testing equals method, expecting false: " + date1.equals(date2));
         date2.setDay(31);
         System.out.println("Testing equals method, expecting true: " + date1.equals(date2));
+        System.out.println("");
+
+        // testing Clone
+        System.out.println("Testing Clone");
+        System.out.println("----------------------------");
+        System.out.println("Printing out date1 to show what it is prior to any changes: " + date1.toString());
+        try {
+            Date date1Clone = (Date) date1.clone();
+            System.out.println("date1Clone has the value of: " + date1Clone.toString());
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e.getMessage());
+        } 
         System.out.println("");
 
         // testing Comparable
