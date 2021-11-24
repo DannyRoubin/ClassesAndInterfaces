@@ -6,9 +6,42 @@ Assignment: Classes and Interfaces assignment
 Purpose of this file/class is to be a money class where a user is able to add in a dollar and cent amount, 
 then is able to add to it, set dollar and cent amounts, compare it to other money objects, and print the value out
 */
-public class Money {
+public class Money implements Comparable {
     private int dollars;
     private int cents;
+
+    @Override
+    public int compareTo(Object o) throws ClassCastException {
+        if (o instanceof Money) {
+            Money otherMoney = (Money) o;
+            if (this.equals(otherMoney)) {
+                return 0;
+            } else if (this.isGreater(o)) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+        throw new ClassCastException("You may only pass in objects of type Money");
+    }
+
+    public boolean isGreater(Object o) {
+        if (o instanceof Money) {
+            Money otherMoney = (Money) o;
+            if(otherMoney.getDollars() >= this.getDollars()) {
+                if (otherMoney.getDollars() > this.getDollars()) {
+                    return true;
+                } else {
+                    if (otherMoney.getCents() > otherMoney.getCents()) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     // blank constructor which sets the dollar and cent amounts to 0 each
     public Money() {
