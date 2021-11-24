@@ -6,12 +6,29 @@ Assignment: Classes and Interfaces assignment
 Purpose of this file/class is to be a money class where a user is able to add in a dollar and cent amount, 
 then is able to add to it, set dollar and cent amounts, compare it to other money objects, and print the value out
 */
-public class Order {
+public class Order implements Comparable {
     private Money amount;
     private Date orderDate;
     private Date sentDate;
     private String customer;
     private String item;
+
+    // Compare to method that checks if two order objects are the same or if the called one is bigger or smaller
+    // Compares by the amount
+    @Override
+    public int compareTo(Object o) throws ClassCastException {
+        if (o instanceof Order) {
+            Order otherOrder = (Order) o;
+            if (this.amount.equals(otherOrder.amount)) {
+                return 0;
+            } else if (this.amount.isGreater(otherOrder.amount)) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+        throw new ClassCastException("You may only pass in objects of type Money");
+    }
 
     // constructor which makes sure that no null data is entered in prior to setting any of the data in
     public Order(Money amount, Date orderDate, String customer, String item) {

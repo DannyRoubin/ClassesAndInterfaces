@@ -10,13 +10,14 @@ public class Money implements Comparable {
     private int dollars;
     private int cents;
 
+    // compare to method that checks if two Money objects are the same or if the called one is bigger or smaller
     @Override
     public int compareTo(Object o) throws ClassCastException {
         if (o instanceof Money) {
             Money otherMoney = (Money) o;
             if (this.equals(otherMoney)) {
                 return 0;
-            } else if (this.isGreater(o)) {
+            } else if (this.isGreater(otherMoney)) {
                 return -1;
             } else {
                 return 1;
@@ -25,6 +26,7 @@ public class Money implements Comparable {
         throw new ClassCastException("You may only pass in objects of type Money");
     }
 
+    // Helper method that allows me to check which of the money objects is greater
     public boolean isGreater(Object o) {
         if (o instanceof Money) {
             Money otherMoney = (Money) o;
