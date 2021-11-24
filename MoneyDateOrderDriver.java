@@ -13,9 +13,9 @@ public class MoneyDateOrderDriver {
      */
 
     public static void main(String[] args) {
-        // moneyClassDriver();
+        moneyClassDriver();
         // dateClassDriver();
-        orderClassDriver();
+        // orderClassDriver();
     }
 
     // Driver method for testing money class
@@ -96,6 +96,20 @@ public class MoneyDateOrderDriver {
         System.out.println("money4 " + money4.toString());
         System.out.println("Checking if money1 and money2 are equal, expected outcome, false: " + money1.equals(money2));
         System.out.println("Checking if money3 and money4 are equal, expected outcome, true: " + money3.equals(money4));
+        System.out.println("");
+
+        // testing Clone
+        System.out.println("Testing Clone");
+        System.out.println("----------------------------");
+        System.out.println("money1 " + money1.toString());
+        try {
+            Money money1Clone = (Money) money1.clone();
+            System.out.println("money1Clone has the value of: " + money1Clone.toString());
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
         System.out.println("");
 
         // testing Comparable
