@@ -13,8 +13,8 @@ public class MoneyDateOrderDriver {
      */
 
     public static void main(String[] args) {
-        // moneyClassDriver();
-        dateClassDriver();
+        moneyClassDriver();
+        // dateClassDriver();
         // orderClassDriver();
     }
 
@@ -96,6 +96,22 @@ public class MoneyDateOrderDriver {
         System.out.println("money4 " + money4.toString());
         System.out.println("Checking if money1 and money2 are equal, expected outcome, false: " + money1.equals(money2));
         System.out.println("Checking if money3 and money4 are equal, expected outcome, true: " + money3.equals(money4));
+        System.out.println("");
+
+        // testing Comparable
+        System.out.println("Testing Comparable");
+        System.out.println("----------------------------");
+        Money money2Copy = new Money(money2);
+        Date date2 = new Date(1, 2, 2016);
+        System.out.println("Printing out money2 to show what it is prior to any changes: " + money2.toString());
+        System.out.println("Printing out money2Copy to show what it is prior to any changes: " + money2Copy.toString());
+        System.out.println("Printing out money3 to show what it is prior to any changes: " + money3.toString());
+        System.out.println("Testing out compareTo with two money objects that are the same, expecting 0  : " + money2.compareTo(money2Copy));
+        System.out.println("Testing out compareTo on money 3 and money 2, money 3 being the earlier money and money 2 being the later one, expecting -1  : " + money3.compareTo(money2));
+        System.out.println("Testing out compareTo on money 2 and money 3, money 2 being the earlier money and money 3 being the later one, expecting 1  : " + money2.compareTo(money3));
+        System.out.println("Testing out compareTo on money2 and date2, expecting error on next line" );
+        money2.compareTo(date2);
+
     }
 
     public static void dateClassDriver() {
