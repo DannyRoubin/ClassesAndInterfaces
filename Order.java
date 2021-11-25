@@ -6,7 +6,7 @@ Assignment: Classes and Interfaces assignment
 Purpose of this file/class is to be a money class where a user is able to add in a dollar and cent amount, 
 then is able to add to it, set dollar and cent amounts, compare it to other money objects, and print the value out
 */
-public class Order implements Comparable, Cloneable {
+public class Order implements Comparable, Cloneable, Serializable {
     private Money amount;
     private Date orderDate;
     private Date sentDate;

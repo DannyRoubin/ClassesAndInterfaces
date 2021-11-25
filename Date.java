@@ -12,7 +12,7 @@ each month has 31 days
 years will be between 2016-2026
 printing an invalid date will return an error message and continue
 */
-public class Date implements Comparable, Cloneable {
+public class Date implements Comparable, Cloneable, Serializable {
     private int month;
     private int day;
     private int year;

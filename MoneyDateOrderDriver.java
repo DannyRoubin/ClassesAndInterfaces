@@ -8,13 +8,9 @@ and to test every method with a proper and improper insertion of data
 */
 public class MoneyDateOrderDriver {
 
-    /*
-     * ASK QUESTION ABOUT GETTERS RETURNING 01 OR 1
-     */
-
     public static void main(String[] args) {
-        // moneyClassDriver();
-        dateClassDriver();
+        moneyClassDriver();
+        // dateClassDriver();
         // orderClassDriver();
     }
 
@@ -330,6 +326,28 @@ public class MoneyDateOrderDriver {
             System.out.println(e.getMessage());
         } 
         System.out.println("");
+
+          // testing PurchaseOrderAccount
+          System.out.println("Testing PurchaseOrderAccount");
+          System.out.println("----------------------------");
+          System.out.println("Order 1: " + order1.toString());
+          System.out.println("Order 2: " + order2.toString());
+          System.out.println("Order 3: " + order3.toString());
+          PurchaseOrderAccount purchaseOrderAccount1 = new PurchaseOrderAccount();
+          purchaseOrderAccount1.insert(order1,0);
+          purchaseOrderAccount1.insert(order3,1);
+          System.out.println("here is list purchaseOrderAccount1 prior to cloning: " + purchaseOrderAccount1.toString());
+
+
+          try {
+              PurchaseOrderAccount purchaseOrderAccount1Clone = (PurchaseOrderAccount) purchaseOrderAccount1.clone();
+              System.out.println("purchaseOrderAccount1Clone has the value of: " + purchaseOrderAccount1Clone.toString());
+          } catch (CloneNotSupportedException e) {
+              System.out.println(e.getMessage());
+          } 
+          System.out.println("");
+
+        
 
         // testing Comparable
         Date date2 = new Date(1, 2, 2016);
