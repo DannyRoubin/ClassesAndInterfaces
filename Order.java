@@ -44,7 +44,7 @@ public class Order implements Comparable, Cloneable, Serializable {
                 return 1;
             }
         }
-        throw new ClassCastException("You may only pass in objects of type Money");
+        throw new ClassCastException("You may only pass in objects of type Order");
     }
 
     // constructor which makes sure that no null data is entered in prior to setting any of the data in
